@@ -93,7 +93,7 @@ def apply_key():...
     # TODO パスワード＋ロックかける
 
 def help():
-    # help情報を示す。
+    # コマンド一覧の表示
     print("1) log\n" +
           "2) one\n" +
           "3) brs\n" +
@@ -108,10 +108,10 @@ def select_mode(mode):
         output_one()
     elif mode == "brs" or mode == "3":
         brainstorm()
-    elif mode == "end" or mode == "4":
+    elif mode == "end" or mode == "4" or mode == "exit":
         print("しゅーりょーします")
         return 0
-    elif mode == "mode" or mode == "help" or mode == "exit":
+    elif mode == "mode" or mode == "help":
         help()
     else:
         print("そのモードはありません")
@@ -124,7 +124,7 @@ if __name__ == "__main__":
         print("Enterキーを押して終了してください")
         input('') # Enterを押して終了
 
-    except KeyboardInterrupt: # crtl + c or delete ?
+    except KeyboardInterrupt: # crtl + c または delete 
         """
         モードの追加
         過去のアイデアのlog確認など
@@ -133,9 +133,9 @@ if __name__ == "__main__":
             
         while True:    
             mode = input('mode>')
-            motivation = select_mode(mode)
-            if motivation == 0:
+            c = select_mode(mode)
+            if c == 0:
                 break
 
         print("Enterキーを押して終了してください")
-        input('') # Enterキーを押して終了
+        input('') 
